@@ -19,10 +19,21 @@ kotlin {
 
 intellijPlatform {
     buildSearchableOptions = false
+
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "251"
             untilBuild = provider { null }
         }
+    }
+
+    signing {
+        certificateChain.set(providers.environmentVariable("JETBRAINS_CERTIFICATE_CHAIN"))
+        privateKey.set(providers.environmentVariable("JETBRAINS_PRIVATE_KEY"))
+        password.set(providers.environmentVariable("JETBRAINS_PRIVATE_KEY_PASSWORD"))
+    }
+
+    publishing {
+        token.set(providers.environmentVariable("JETBRAINS_MARKETPLACE_TOKEN"))
     }
 }
