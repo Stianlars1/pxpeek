@@ -1,0 +1,18 @@
+.gradle/
+build/
+out/
+.intellijPlatform/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+local.properties

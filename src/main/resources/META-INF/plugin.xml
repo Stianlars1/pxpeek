@@ -1,0 +1,74 @@
+<idea-plugin url="https://github.com/Stianlars1/pxpeek">
+    <id>dev.stianl.pxpeek</id>
+    <name>PxPeek - CSS Pixel Hints</name>
+    <vendor email="stian.larsen@mac.com" url="https://github.com/Stianlars1">Stian Larsen</vendor>
+
+    <description><![CDATA[
+        Shows the pixel equivalent of relative CSS size values inline, as comment-style inlay hints.
+        <br><br>
+        Supports <b>CSS</b>, <b>SCSS</b>, <b>SASS</b>, and <b>LESS</b>.
+        <br><br>
+        Example:<br>
+        <code>width: 42rem /*672px*/;</code><br>
+        <code>padding: 1rem /*16px*/ 2rem /*32px*/;</code>
+        <br><br>
+        Converts <code>rem</code>, <code>em</code>, <code>%</code>, <code>pt</code>, <code>pc</code>,
+        <code>in</code>, <code>cm</code>, <code>mm</code>, <code>ch</code>, <code>ex</code>,
+        <code>vw</code>, <code>vh</code>, <code>vmin</code>, <code>vmax</code>, and their small/large/dynamic viewport variants.
+        <br><br>
+        Defaults: 16px root font, 1440×900 viewport.
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <h3>0.1.0</h3>
+        <ul>
+            <li>First release.</li>
+            <li>Inline pixel-equivalent inlay hints for 18 relative CSS units.</li>
+            <li>Supports CSS, SCSS, SASS, and LESS.</li>
+        </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.css</depends>
+
+    <resource-bundle>messages.PxPeekBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.declarativeInlayProvider
+            language="CSS"
+            providerId="pxpeek.css"
+            implementationClass="dev.stianl.pxpeek.CssSizeInlayProvider"
+            isEnabledByDefault="true"
+            group="VALUES_GROUP"
+            bundle="messages.PxPeekBundle"
+            nameKey="inlay.name"
+            descriptionKey="inlay.desc"/>
+        <codeInsight.declarativeInlayProvider
+            language="SCSS"
+            providerId="pxpeek.scss"
+            implementationClass="dev.stianl.pxpeek.CssSizeInlayProvider"
+            isEnabledByDefault="true"
+            group="VALUES_GROUP"
+            bundle="messages.PxPeekBundle"
+            nameKey="inlay.name"
+            descriptionKey="inlay.desc"/>
+        <codeInsight.declarativeInlayProvider
+            language="SASS"
+            providerId="pxpeek.sass"
+            implementationClass="dev.stianl.pxpeek.CssSizeInlayProvider"
+            isEnabledByDefault="true"
+            group="VALUES_GROUP"
+            bundle="messages.PxPeekBundle"
+            nameKey="inlay.name"
+            descriptionKey="inlay.desc"/>
+        <codeInsight.declarativeInlayProvider
+            language="LESS"
+            providerId="pxpeek.less"
+            implementationClass="dev.stianl.pxpeek.CssSizeInlayProvider"
+            isEnabledByDefault="true"
+            group="VALUES_GROUP"
+            bundle="messages.PxPeekBundle"
+            nameKey="inlay.name"
+            descriptionKey="inlay.desc"/>
+    </extensions>
+</idea-plugin>
