@@ -40,9 +40,18 @@ Any JetBrains IDE that ships the bundled CSS plugin: **WebStorm, IntelliJ IDEA U
 
 Requires build **251** (2025.1) or newer.
 
-## Settings
+## Hint placement
 
-PxPeek is intentionally zero-config. Defaults are hardcoded:
+Choose where hints appear: *Settings → Editor → Inlay Hints → PxPeek*
+
+| Mode | Example |
+|---|---|
+| **End of line** (default) | `width: min(42rem, 100%); /* 672px, 16px */` |
+| **Inline** | `width: min(42rem /* 672px */, 100% /* 16px */)` |
+
+## Conversion defaults
+
+Hardcoded (no settings panel needed):
 
 | Unit family | Basis |
 |---|---|

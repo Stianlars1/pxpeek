@@ -4,12 +4,13 @@ plugins {
 }
 
 group = "dev.stianl"
-version = "0.1.0"
+version = "0.2.0"
 
 dependencies {
     intellijPlatform {
         intellijIdeaUltimate("2025.1")
         bundledPlugin("com.intellij.css")
+        zipSigner()
     }
 }
 

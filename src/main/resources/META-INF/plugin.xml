@@ -4,13 +4,18 @@
     <vendor email="stian.larsen@mac.com" url="https://github.com/Stianlars1">Stian Larsen</vendor>
 
     <description><![CDATA[
-        Shows the pixel equivalent of relative CSS size values inline, as comment-style inlay hints.
+        Shows the pixel equivalent of relative CSS size values as comment-style inlay hints.
         <br><br>
         Supports <b>CSS</b>, <b>SCSS</b>, <b>SASS</b>, and <b>LESS</b>.
         <br><br>
-        Example:<br>
-        <code>width: 42rem /*672px*/;</code><br>
-        <code>padding: 1rem /*16px*/ 2rem /*32px*/;</code>
+        <b>Choose where hints appear:</b>
+        <ul>
+            <li><b>End of line</b> (default) — aggregated after the semicolon:<br>
+                <code>width: min(42rem, 100%); /* 672px, 16px */</code></li>
+            <li><b>Inline</b> — next to each value:<br>
+                <code>width: min(42rem /* 672px */, 100% /* 16px */)</code></li>
+        </ul>
+        Configure in <i>Settings → Editor → Inlay Hints → PxPeek</i>.
         <br><br>
         Converts <code>rem</code>, <code>em</code>, <code>%</code>, <code>pt</code>, <code>pc</code>,
         <code>in</code>, <code>cm</code>, <code>mm</code>, <code>ch</code>, <code>ex</code>,
@@ -20,6 +25,12 @@
     ]]></description>
 
     <change-notes><![CDATA[
+        <h3>0.2.0</h3>
+        <ul>
+            <li>New: Hint placement preference — choose between <b>End of line</b> (aggregated after the semicolon) or <b>Inline</b> (next to each value).</li>
+            <li>New: Settings panel at <i>Settings → Editor → Inlay Hints → PxPeek</i>.</li>
+            <li>Default placement changed to <b>End of line</b> for cleaner stylesheet readability.</li>
+        </ul>
         <h3>0.1.0</h3>
         <ul>
             <li>First release.</li>
@@ -34,6 +45,13 @@
     <resource-bundle>messages.PxPeekBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="dev.stianl.pxpeek.PxPeekSettings"/>
+        <applicationConfigurable
+            parentId="editor.preferences.inlayHints"
+            instance="dev.stianl.pxpeek.PxPeekConfigurable"
+            id="dev.stianl.pxpeek.settings"
+            displayName="PxPeek"/>
         <codeInsight.declarativeInlayProvider
             language="CSS"
             providerId="pxpeek.css"
