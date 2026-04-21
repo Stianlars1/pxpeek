@@ -10,6 +10,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
+import dev.stianl.pxpeek.feedback.RatePromptService
 
 private val SIZE_REGEX = Regex(
     "^(-?\\d+(?:\\.\\d+)?)(rem|em|pt|pc|in|cm|mm|q|ch|ex|vmin|vmax|svw|lvw|dvw|svh|lvh|dvh|vw|vh|%)$",
@@ -34,6 +35,8 @@ class CssSizeInlayProvider : InlayHintsProvider {
             }
 
             if (hits.isEmpty()) return
+
+            RatePromptService.getInstance().recordUsage()
 
             when (placement) {
                 HintPlacement.INLINE -> emitInline(hits, sink)

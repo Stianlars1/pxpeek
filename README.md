@@ -72,6 +72,10 @@ Toggle PxPeek on/off per language: *Settings → Editor → Inlay Hints → Valu
 
 Requires JDK 21, Gradle 8.13+ (wrapper included).
 
+## Also by this author
+
+If you work with CSS custom properties, try **[CSS Variables Assistant](https://plugins.jetbrains.com/plugin/27392-css-variables-assistant)** — autocomplete, docs, and resolution tracing for `var(--name)` across CSS / SCSS / SASS / LESS.
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).

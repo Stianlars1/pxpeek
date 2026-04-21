@@ -22,9 +22,18 @@
         <code>vw</code>, <code>vh</code>, <code>vmin</code>, <code>vmax</code>, and their small/large/dynamic viewport variants.
         <br><br>
         Defaults: 16px root font, 1440×900 viewport.
+        <br><br>
+        <b>Pairs well with:</b>
+        <a href="https://plugins.jetbrains.com/plugin/27392-css-variables-assistant">CSS Variables Assistant</a>
+        — autocomplete, docs, and resolution tracing for <code>var(--name)</code>.
     ]]></description>
 
     <change-notes><![CDATA[
+        <h3>0.3.0</h3>
+        <ul>
+            <li>New: Optional one-time feedback prompt — after ~14 days of real use, a single non-intrusive balloon asks if you'd like to rate PxPeek on Marketplace. Includes "Remind me later" and "Don't show again" actions.</li>
+            <li>New: Pairs well with <a href="https://plugins.jetbrains.com/plugin/27392-css-variables-assistant">CSS Variables Assistant</a> — a sibling plugin by the same author adding autocomplete + docs for CSS custom properties.</li>
+        </ul>
         <h3>0.2.0</h3>
         <ul>
             <li>New: Hint placement preference — choose between <b>End of line</b> (aggregated after the semicolon) or <b>Inline</b> (next to each value).</li>
@@ -45,6 +54,7 @@
     <resource-bundle>messages.PxPeekBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="PxPeek" displayType="BALLOON" hideFromSettings="true"/>
         <applicationService
             serviceImplementation="dev.stianl.pxpeek.PxPeekSettings"/>
         <applicationConfigurable
